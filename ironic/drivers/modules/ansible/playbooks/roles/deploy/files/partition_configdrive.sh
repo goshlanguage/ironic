@@ -103,7 +103,7 @@ if [ -z $EXISTING_PARTITION ]; then
         fi
 
         log "Adding configdrive partition to $DEVICE"
-        parted -a optimal -s -- $DEVICE mkpart primary fat32 $startlimit $endlimit || fail "creating configdrive on ${DEVICE}"
+        parted -a optimal -s -- $DEVICE mkpart primary fat16 $startlimit $endlimit || fail "creating configdrive on ${DEVICE}"
 
         # Find partition we just created
         # Dump all partitions, ignore empty ones, then get the last partition ID
